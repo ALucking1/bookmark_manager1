@@ -4,6 +4,7 @@ feature 'adding a user account' do
       visit "/signup"
       fill_in :username, with: 'bobthepanda@email.com'
       fill_in :password, with: 'Pandas4Life'
+      fill_in :confirm_password, with: 'Pandas4Life'
       expect{click_button('Submit')}.to change{User.count}.by(1)
       expect(page).to have_current_path('/links')
       user = User.first
